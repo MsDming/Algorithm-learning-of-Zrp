@@ -1,0 +1,30 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "request": "launch",
+            "program": "${fileDirname}\\bin\\${fileBasenameNoExtension}.exe", //调试文件路径
+            "preLaunchTask": "build",
+            "cwd": "${fileDirname}",
+            "presentation": {
+                "hidden": false,
+                "clear": true,
+                "order": 1
+            },
+            "setupCommands": [
+                {
+                    "description": "Skip library files",
+                    "text": "-interpreter-exec console \"skip -gfile bits/*.*\"", //跳过标准库
+                }
+            ],
+            "internalConsoleOptions": "neverOpen" //内部控制台
+        }
+    ]
+}
